@@ -1,0 +1,19 @@
+---
+- name: Install Samba on CentOS
+  yum:
+    name: samba
+    state: present
+
+- name: Ensure Samba service is enabled and started
+  systemd:
+    name: smb
+    enabled: yes
+    state: started
+
+- name: Configure Samba
+  copy:
+    src: samba.conf
+    dest: /etc/samba/smb.conf
+    owner: root
+    group: root
+    mode: '0644'

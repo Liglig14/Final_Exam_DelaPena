@@ -1,0 +1,5 @@
+[UbuntuServers]
+192.168.56.100
+192.168.56.101
+[CentOSServers]
+192.168.56.103 ansible_user=Jose

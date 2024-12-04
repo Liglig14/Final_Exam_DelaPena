@@ -1,0 +1,19 @@
+- name: Install Samba on Ubuntu
+  apt:
+    name: samba
+    state: present
+    update_cache: yes
+
+- name: Ensure Samba service is enabled and started
+  systemd:
+    name: smbd
+    enabled: yes
+    state: started
+
+- name: Configure Samba
+  copy:
+    src: samba.conf
+    dest: /etc/samba/smb.conf
+    owner: root
+    group: root
+    mode: '0644'
